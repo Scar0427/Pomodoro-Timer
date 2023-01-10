@@ -11,3 +11,11 @@ import Foundation
 struct TimeConstants{
     public static let updateTimerTime = 0.01
 }
+
+
+#if os(macOS)
+enum WindowSize{
+    static let minSize = CGSize(width: 300, height: 500)
+    static let maxSize = CGSize(width: 300, height: 600)
+}
+#endif

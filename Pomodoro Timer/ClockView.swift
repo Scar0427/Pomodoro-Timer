@@ -16,8 +16,11 @@ struct ClockView: View {
     
     var body: some View {
 
+        VStack(alignment: .center){
             Circle()
                 .strokeBorder(lineWidth: 10)
+                .foregroundColor(Color("SecondaryColor"))
+                .padding(10)
                 .overlay{
                     Text("MM : SS")
                         .font(.largeTitle)
@@ -32,7 +35,11 @@ struct ClockView: View {
                        
                     }
                 }
-
+        }
+        #if os(macOS)
+        .frame(minWidth: WindowSize.minSize.width, minHeight: WindowSize.minSize.height)
+        .frame(maxWidth: WindowSize.maxSize.width, maxHeight: WindowSize.maxSize.height)
+        #endif
     }
 }
 
@@ -48,6 +55,7 @@ struct MutableView: View{
             .onChange(of: givenDate){_ in
                 seconds += TimeConstants.updateTimerTime
             }
+
     }
 
 }
