@@ -17,6 +17,8 @@
 		A2440DD6296C928F00A1E3D1 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2440DD5296C928F00A1E3D1 /* ClockView.swift */; };
 		A2440DDA296C9C5500A1E3D1 /* CompletionTimeArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2440DD9296C9C5500A1E3D1 /* CompletionTimeArc.swift */; };
 		A2440DDC296D4F2300A1E3D1 /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2440DDB296D4F2300A1E3D1 /* ApplicationConstants.swift */; };
+		A260E3E2296E8EB5002E2A3C /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A260E3E1296E8EB5002E2A3C /* MainScreen.swift */; };
+		A260E3E4296E91EB002E2A3C /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A260E3E3296E91EB002E2A3C /* ButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		A2440DD5296C928F00A1E3D1 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A2440DD9296C9C5500A1E3D1 /* CompletionTimeArc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionTimeArc.swift; sourceTree = "<group>"; };
 		A2440DDB296D4F2300A1E3D1 /* ApplicationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstants.swift; sourceTree = "<group>"; };
+		A260E3E1296E8EB5002E2A3C /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		A260E3E3296E91EB002E2A3C /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				A2440DD5296C928F00A1E3D1 /* ClockView.swift */,
 				A2440DD9296C9C5500A1E3D1 /* CompletionTimeArc.swift */,
 				A2440DDB296D4F2300A1E3D1 /* ApplicationConstants.swift */,
+				A260E3E1296E8EB5002E2A3C /* MainScreen.swift */,
+				A260E3E3296E91EB002E2A3C /* ButtonStyle.swift */,
 			);
 			path = "Pomodoro Timer";
 			sourceTree = "<group>";
@@ -268,11 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A260E3E2296E8EB5002E2A3C /* MainScreen.swift in Sources */,
 				A2440DDC296D4F2300A1E3D1 /* ApplicationConstants.swift in Sources */,
 				A2440DAD296C87F500A1E3D1 /* ContentView.swift in Sources */,
 				A2440DDA296C9C5500A1E3D1 /* CompletionTimeArc.swift in Sources */,
 				A2440DD6296C928F00A1E3D1 /* ClockView.swift in Sources */,
 				A2440DAB296C87F500A1E3D1 /* Pomodoro_TimerApp.swift in Sources */,
+				A260E3E4296E91EB002E2A3C /* ButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
