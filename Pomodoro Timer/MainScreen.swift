@@ -15,31 +15,41 @@ struct MainScreen: View {
     @State var minutosDescanso = 5
     
     @State var actualTimeSpace = 0
+    @State var hidingElementsScale = 1.0
+    @State var clockFrameSize = 200.0
     
     var body: some View {
         VStack{
-            Text("POMODORO TIMER")
+            Text("TIMER")
                 .font(.largeTitle)
                 .bold()
                 .padding(15)
-            if(inTimeConfiguration == false){
-                ClockView(activeCronometer: $cronometerActualTime, minutosACronometar: $actualTimeSpace)
-                    .frame(height: 200)
+
+                ClockView(activeCronometer: $cronometerActualTime, minutosACronometar: $actualTimeSpace, actualScale: $hidingElementsScale)
+                    .frame(height: clockFrameSize)
                 
                 Button(cronometerActualTime ? "Detener temporizador" : "Iniciar temporizador"){
                     actualTimeSpace = minutosNormal
                     cronometerActualTime.toggle()
                 }.padding(5)
+                .scaleEffect(hidingElementsScale)
 #if os(macOS)
-                    .buttonStyle(MacOSButtonLikeIOS())
+                .buttonStyle(MacOSButtonLikeIOS())
 #elseif os(iOS)
-                    .buttonStyle(.borderedProminent)
+                .buttonStyle(.borderedProminent)
 #endif
-            }
+
         
             
             Button(inTimeConfiguration ? "Guardar tiempos" : "Configurar tiempos"){
                 inTimeConfiguration.toggle()
+                if(inTimeConfiguration){
+                    hidingElementsScale = 0.0
+                    clockFrameSize = 0.0
+                }else{
+                    hidingElementsScale = 1.0
+                    clockFrameSize = 200.0
+                }
             }
             .padding(5)
             #if os(macOS)
@@ -74,11 +84,13 @@ struct MainScreen: View {
                         Stepper(value: $minutosDescanso, in: 1...30) {
                             Text("Descanso: \(minutosDescanso)")
                         }
-                    }
+                    }.padding(10)
                 }
                 
             }
         }
+        .animation(.spring(), value: hidingElementsScale)
+        .animation(.spring(), value: clockFrameSize)
         #if os(macOS)
         .frame(minWidth: WindowSize.minSize.width, maxWidth: WindowSize.maxSize.width, minHeight: WindowSize.minSize.height, maxHeight: WindowSize.maxSize.height, alignment: .top)
         #elseif os(iOS)

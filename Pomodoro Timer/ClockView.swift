@@ -12,8 +12,12 @@ struct ClockView: View {
     
     @State var secondsSinceStart = 0.0
     @State var aDate = Date.now
+    @State var minutes = 0
+    @State var seconds = 0
     @Binding var activeCronometer : Bool
     @Binding var minutosACronometar : Int
+    @Binding var actualScale : Double
+
 
     
     var body: some View {
@@ -25,7 +29,7 @@ struct ClockView: View {
                 .padding(10)
                 .overlay{
                     //TODO: Hacer que el contador de tiempo en texto se actualice en el cronometro
-                    Text("MM : SS")
+                    Text(String(format: "%02d : %02d", minutes, seconds))
                         .font(.largeTitle)
                         .fontWeight(.black)
                         .multilineTextAlignment(.center)
@@ -38,8 +42,17 @@ struct ClockView: View {
                         }
                     }
                 }
+
         }.onChange(of: activeCronometer){_ in
             secondsSinceStart = 0.0
+        }
+        .scaleEffect(actualScale)
+        .animation(.spring(), value: actualScale)
+        .onChange(of: secondsSinceStart){_ in
+            var remainingTimeInSeconds = Double(minutosACronometar * 60) - round(secondsSinceStart)
+            
+            minutes = Int(round(remainingTimeInSeconds / 60))
+            seconds = Int(round(remainingTimeInSeconds.truncatingRemainder(dividingBy: 60)))
         }
        /* #if os(macOS)
         .frame(minWidth: WindowSize.minSize.width, minHeight: WindowSize.minSize.height)
@@ -68,7 +81,7 @@ struct MutableView: View{
 
 struct ClockView_Previews: PreviewProvider {
     static var previews: some View {
-        ClockView(activeCronometer: .constant(true), minutosACronometar: .constant(5))
+        ClockView(activeCronometer: .constant(true), minutosACronometar: .constant(5), actualScale: .constant(1.0))
         
     }
 }
