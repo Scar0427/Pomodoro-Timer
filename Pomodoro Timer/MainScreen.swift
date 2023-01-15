@@ -20,7 +20,7 @@ struct MainScreen: View {
     
     var body: some View {
         VStack{
-            Text("TIMER")
+            Text("POMODORO TIMER")
                 .font(.largeTitle)
                 .bold()
                 .padding(15)

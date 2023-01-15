@@ -9,7 +9,7 @@ import Foundation
 
 // An structuture that constain all constants values related to time
 struct TimeConstants{
-    public static let updateTimerTime = 0.01
+    public static let updateTimerTime = 0.001
 }
 
 
