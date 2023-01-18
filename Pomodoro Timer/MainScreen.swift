@@ -13,6 +13,8 @@ struct MainScreen: View {
     @State var inTimeConfiguration = false
     @State var minutosNormal = 25
     @State var minutosDescanso = 5
+    //Un ciclo es el tiempo total de minutosNormal y de Descanso. Mientras los ciclos no terminen, la app ira repitiendo el bucle hasta terminar todos.
+    @State var ciclosAntesDeParar = 8
     
     @State var actualTimeSpace = 0
     @State var hidingElementsScale = 1.0
@@ -31,6 +33,8 @@ struct MainScreen: View {
                 Button(cronometerActualTime ? "Detener temporizador" : "Iniciar temporizador"){
                     actualTimeSpace = minutosNormal
                     cronometerActualTime.toggle()
+                    
+                    //TODO: Hay que configuar el temporizador según que fue el útlimo estado (o sea, que tras un temporizador de descanso, empiece otro de trabajo y así), además de agendar todo el sistema de notificaciones.
                 }.padding(5)
                 .scaleEffect(hidingElementsScale)
 #if os(macOS)
@@ -72,6 +76,10 @@ struct MainScreen: View {
                         HStack{
                             Text("Descanso: ").bold()
                             Text("\(minutosDescanso) minutos")
+                        }.padding(5)
+                        HStack{
+                            Text("Tiempo de ejecución: ").bold()
+                            Text("\(ConvertMinutesToHourMinutesString(minutos: ciclosAntesDeParar * (minutosNormal + minutosDescanso)))")
                         }
                     }
                     .padding(10)
@@ -83,6 +91,9 @@ struct MainScreen: View {
                         }
                         Stepper(value: $minutosDescanso, in: 1...30) {
                             Text("Descanso: \(minutosDescanso)")
+                        }
+                        Stepper(value: $ciclosAntesDeParar, in: 1...30) {
+                            Text("Tiempo de ejecución: \(ConvertMinutesToHourMinutesString(minutos: ciclosAntesDeParar * (minutosNormal + minutosDescanso)))")
                         }
                     }.padding(10)
                 }

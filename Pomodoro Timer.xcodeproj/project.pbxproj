@@ -19,6 +19,8 @@
 		A2440DDC296D4F2300A1E3D1 /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2440DDB296D4F2300A1E3D1 /* ApplicationConstants.swift */; };
 		A260E3E2296E8EB5002E2A3C /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A260E3E1296E8EB5002E2A3C /* MainScreen.swift */; };
 		A260E3E4296E91EB002E2A3C /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A260E3E3296E91EB002E2A3C /* ButtonStyle.swift */; };
+		A2AEF8222977080F00E410F5 /* ApplicationConvertionSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AEF8212977080F00E410F5 /* ApplicationConvertionSystem.swift */; };
+		A2AEF8242977DD2300E410F5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AEF8232977DD2300E410F5 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		A2440DDB296D4F2300A1E3D1 /* ApplicationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstants.swift; sourceTree = "<group>"; };
 		A260E3E1296E8EB5002E2A3C /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		A260E3E3296E91EB002E2A3C /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		A2AEF8212977080F00E410F5 /* ApplicationConvertionSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConvertionSystem.swift; sourceTree = "<group>"; };
+		A2AEF8232977DD2300E410F5 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				A2440DDB296D4F2300A1E3D1 /* ApplicationConstants.swift */,
 				A260E3E1296E8EB5002E2A3C /* MainScreen.swift */,
 				A260E3E3296E91EB002E2A3C /* ButtonStyle.swift */,
+				A2AEF8212977080F00E410F5 /* ApplicationConvertionSystem.swift */,
+				A2AEF8232977DD2300E410F5 /* NotificationManager.swift */,
 			);
 			path = "Pomodoro Timer";
 			sourceTree = "<group>";
@@ -277,7 +283,9 @@
 				A260E3E2296E8EB5002E2A3C /* MainScreen.swift in Sources */,
 				A2440DDC296D4F2300A1E3D1 /* ApplicationConstants.swift in Sources */,
 				A2440DAD296C87F500A1E3D1 /* ContentView.swift in Sources */,
+				A2AEF8242977DD2300E410F5 /* NotificationManager.swift in Sources */,
 				A2440DDA296C9C5500A1E3D1 /* CompletionTimeArc.swift in Sources */,
+				A2AEF8222977080F00E410F5 /* ApplicationConvertionSystem.swift in Sources */,
 				A2440DD6296C928F00A1E3D1 /* ClockView.swift in Sources */,
 				A2440DAB296C87F500A1E3D1 /* Pomodoro_TimerApp.swift in Sources */,
 				A260E3E4296E91EB002E2A3C /* ButtonStyle.swift in Sources */,
@@ -439,6 +447,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Pomodoro Timer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -447,8 +457,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -477,6 +486,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Pomodoro Timer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -485,8 +496,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
