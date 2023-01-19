@@ -21,7 +21,7 @@ class NotificationsManager{
     func addNextTimerNotification(timeToNextNotificationInSeconds: Int, esDescanso: Bool){
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "TIEMPO!!!"
-        notificationContent.body = esDescanso ? "Tomate \(timeToNextNotificationInSeconds) libres" : "Vuelve a concentrarte en este momento"
+        notificationContent.body = esDescanso ?  "Vuelve a concentrarte en este momento" : "Tomate un rato libre"
         notificationContent.sound = .defaultCritical
         
         var timeTrigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(timeToNextNotificationInSeconds * 60), repeats: false)

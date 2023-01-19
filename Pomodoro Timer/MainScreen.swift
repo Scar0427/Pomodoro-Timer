@@ -11,6 +11,7 @@ struct MainScreen: View {
     
     @State var cronometerActualTime = false
     @State var inTimeConfiguration = false
+    @State var enDescanso = false
     @State var minutosNormal = 25
     @State var minutosDescanso = 5
     //Un ciclo es el tiempo total de minutosNormal y de Descanso. Mientras los ciclos no terminen, la app ira repitiendo el bucle hasta terminar todos.
@@ -19,6 +20,8 @@ struct MainScreen: View {
     @State var actualTimeSpace = 0
     @State var hidingElementsScale = 1.0
     @State var clockFrameSize = 200.0
+    
+    let notificationManager = NotificationsManager()
     
     var body: some View {
         VStack{
@@ -31,10 +34,13 @@ struct MainScreen: View {
                     .frame(height: clockFrameSize)
                 
                 Button(cronometerActualTime ? "Detener temporizador" : "Iniciar temporizador"){
-                    actualTimeSpace = minutosNormal
                     cronometerActualTime.toggle()
-                    
-                    //TODO: Hay que configuar el temporizador según que fue el útlimo estado (o sea, que tras un temporizador de descanso, empiece otro de trabajo y así), además de agendar todo el sistema de notificaciones.
+                    enDescanso = false
+                    if cronometerActualTime{
+                        SetCronometerTime()
+                    }else{
+                        notificationManager.deleteNotification()
+                    }
                 }.padding(5)
                 .scaleEffect(hidingElementsScale)
 #if os(macOS)
@@ -107,8 +113,23 @@ struct MainScreen: View {
         #elseif os(iOS)
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 200, alignment: .top)
         #endif
+        .onAppear{
+            notificationManager.requestAutorization()
+        }
+    }
+    
+    func SetCronometerTime(){
+        if !enDescanso{
+            actualTimeSpace = minutosNormal
+
+        }else{
+            actualTimeSpace = minutosDescanso
+        }
+        notificationManager.addNextTimerNotification(timeToNextNotificationInSeconds: actualTimeSpace, esDescanso: enDescanso)
     }
 }
+
+
 
 struct MainScreen_Previews: PreviewProvider {
     static var previews: some View {
